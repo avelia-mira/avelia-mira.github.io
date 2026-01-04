@@ -1,0 +1,41 @@
+{
+  "puzzles": [
+    {
+      "id": 1,
+      "date": "2026-01-06",
+      "centerLetter": "a",
+      "outerLetters": "delilah",
+      "intendedPangram": "delilah",
+      "title": "HAPPY ANNIVERSARY!!!"
+    },
+    {
+      "id": 2,
+      "date": "2026-01-04",
+      "centerLetter": "E",
+      "outerLetters": "BLUTRA",
+      "title": "Daily Puzzle #2"
+    },
+    {
+      "id": 3,
+      "date": "2026-01-05",
+      "centerLetter": "O",
+      "outerLetters": "CNTIAR",
+      "title": "Daily Puzzle #3"
+    },
+    {
+      "id": 4,
+      "date": "2026-01-03",
+      "centerLetter": "A",
+      "outerLetters": "ALYSSA",
+      "intendedPangram": "alyssa",
+      "title": "hi alyssa"
+    },
+    {
+      "id": 5,
+      "date": "2026-01-07",
+      "centerLetter": "S",
+      "outerLetters": "TAREDM",
+      "title": "Daily Puzzle #5"
+    }
+  ]
+}

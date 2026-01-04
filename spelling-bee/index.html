@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Mystical Word Spell 🔮</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Philosopher:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Philosopher', 'Georgia', serif;
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 30%, #e1bee7 70%, #c5cae9 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(2px 2px at 60% 70%, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(1px 1px at 80% 10%, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(2px 2px at 90% 60%, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(1px 1px at 33% 80%, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(1px 1px at 15% 90%, rgba(255, 255, 255, 0.8), transparent);
+            background-size: 200% 200%;
+            animation: stars 8s linear infinite;
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes stars {
+            from { background-position: 0 0; }
+            to { background-position: 100% 100%; }
+        }
+
+        .container {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(243, 229, 245, 0.95) 100%);
+            border-radius: 30px;
+            padding: 20px;
+            box-shadow: 0 20px 60px rgba(156, 39, 176, 0.2), 0 0 40px rgba(103, 58, 183, 0.15);
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            max-height: 98vh;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid rgba(186, 104, 200, 0.3);
+            z-index: 1;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(179, 157, 219, 0.1) 0%, transparent 70%);
+            animation: magicGlow 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes magicGlow {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+            50% { transform: translate(10px, 10px) scale(1.1); opacity: 0.5; }
+        }
+
+        h1 {
+            text-align: center;
+            background: linear-gradient(135deg, #7e57c2, #9575cd, #b39ddb, #9575cd, #7e57c2);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2em;
+            margin-bottom: 5px;
+            text-shadow: 0 0 20px rgba(126, 87, 194, 0.3);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+            animation: shimmer 3s linear infinite;
+            position: relative;
+            z-index: 2;
+            display: none;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #7e57c2;
+            margin-bottom: 15px;
+            font-size: 1em;
+            font-style: italic;
+            text-shadow: 0 0 10px rgba(126, 87, 194, 0.2);
+            position: relative;
+            z-index: 2;
+            display: none;
+        }
+
+        .setup-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(243, 229, 245, 0.5);
+            border-radius: 20px;
+            border: 3px dashed rgba(156, 39, 176, 0.4);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #7e57c2;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 3px solid rgba(179, 157, 219, 0.4);
+            border-radius: 15px;
+            font-size: 1.1em;
+            font-family: inherit;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #9575cd;
+            box-shadow: 0 0 20px rgba(149, 117, 205, 0.4);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #9575cd, #7e57c2, #673ab7);
+            color: #ffffff;
+            border: 2px solid rgba(156, 39, 176, 0.3);
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(126, 87, 194, 0.3), 0 0 15px rgba(126, 87, 194, 0.2);
+            font-family: 'Cinzel', serif;
+            width: 100%;
+            margin-top: 8px;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(126, 87, 194, 0.4), 0 0 25px rgba(149, 117, 205, 0.3);
+            background: linear-gradient(135deg, #b39ddb, #9575cd, #7e57c2);
+            border-color: rgba(103, 58, 183, 0.5);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .game-section {
+            display: none;
+            flex-direction: column;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .game-section.active {
+            display: flex;
+        }
+
+        #puzzleTitle {
+            text-align: center;
+            color: #7e57c2;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-family: 'Cinzel', serif;
+            text-shadow: 0 0 15px rgba(126, 87, 194, 0.3);
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .rank-display {
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(179, 157, 219, 0.15);
+            border-radius: 20px;
+            border: 2px solid rgba(156, 39, 176, 0.3);
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+
+        .rank-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            gap: 10px;
+        }
+
+        .rank-title {
+            font-size: 1.4em;
+            font-weight: bold;
+            font-family: 'Cinzel', serif;
+            text-shadow: 0 0 10px rgba(126, 87, 194, 0.3);
+            letter-spacing: 1px;
+            flex: 1;
+        }
+
+        .rank-emoji-progress {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 1.2em;
+            opacity: 0.8;
+        }
+
+        .rank-percentage {
+            font-size: 1.1em;
+            color: #9575cd;
+            font-weight: bold;
+            flex: 0 0 auto;
+        }
+
+        .rank-progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(179, 157, 219, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(156, 39, 176, 0.3);
+        }
+
+        .rank-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #9575cd, #7e57c2, #673ab7);
+            border-radius: 10px;
+            transition: width 0.5s ease-out;
+            box-shadow: 0 0 10px rgba(149, 117, 205, 0.5);
+        }
+
+        .rank-beginner { color: #9e9e9e; }
+        .rank-good-start { color: #78909c; }
+        .rank-moving-up { color: #64b5f6; }
+        .rank-good { color: #4fc3f7; }
+        .rank-solid { color: #9575cd; }
+        .rank-nice { color: #ba68c8; }
+        .rank-great { color: #ce93d8; }
+        .rank-amazing { color: #f06292; }
+        .rank-genius { 
+            color: #ffd700;
+            animation: rankGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes rankGlow {
+            0%, 100% { text-shadow: 0 0 15px rgba(255, 215, 0, 0.6); }
+            50% { text-shadow: 0 0 25px rgba(255, 215, 0, 0.9), 0 0 35px rgba(255, 193, 7, 0.6); }
+        }
+
+        @keyframes rankUp {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes celebrate {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(-5deg); }
+            75% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        .rank-up-animation {
+            animation: rankUp 0.6s ease-out, celebrate 0.8s ease-out;
+        }
+
+        .rank-display.rank-up {
+            animation: celebrate 0.8s ease-out;
+        }
+
+        .hive-container {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            margin: 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .orb {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at 30% 30%, rgba(179, 157, 219, 0.95), rgba(149, 117, 205, 0.98));
+            border: 3px solid rgba(156, 39, 176, 0.4);
+            border-radius: 50%;
+            font-size: 1.6em;
+            font-weight: bold;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            text-transform: uppercase;
+            user-select: none;
+            box-shadow: 
+                0 8px 20px rgba(156, 39, 176, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.3),
+                0 0 15px rgba(179, 157, 219, 0.4);
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+
+        .orb::before {
+            content: '';
+            position: absolute;
+            top: 15%;
+            left: 20%;
+            width: 30%;
+            height: 30%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent);
+            border-radius: 50%;
+            filter: blur(3px);
+        }
+
+        .orb:hover {
+            transform: scale(1.2);
+            box-shadow: 
+                0 12px 30px rgba(156, 39, 176, 0.5),
+                inset 0 0 30px rgba(255, 255, 255, 0.4),
+                0 0 25px rgba(179, 157, 219, 0.6);
+            z-index: 10;
+            border-color: rgba(103, 58, 183, 0.6);
+        }
+
+        .orb:active {
+            transform: scale(0.9);
+        }
+
+        .orb.center {
+            width: 85px;
+            height: 85px;
+            font-size: 2em;
+            background: radial-gradient(circle at 30% 30%, rgba(100, 181, 246, 0.95), rgba(66, 165, 245, 0.98));
+            border: 4px solid rgba(33, 150, 243, 0.5);
+            color: #ffffff;
+            animation: pulse 2s infinite, mysticalGlow 3s ease-in-out infinite;
+            box-shadow: 
+                0 10px 30px rgba(33, 150, 243, 0.4),
+                inset 0 0 25px rgba(255, 255, 255, 0.3),
+                0 0 30px rgba(100, 181, 246, 0.5);
+            z-index: 5;
+        }
+
+        @keyframes mysticalGlow {
+            0%, 100% { box-shadow: 0 10px 30px rgba(33, 150, 243, 0.4), inset 0 0 25px rgba(255, 255, 255, 0.3), 0 0 30px rgba(100, 181, 246, 0.5); }
+            50% { box-shadow: 0 15px 40px rgba(33, 150, 243, 0.6), inset 0 0 35px rgba(255, 255, 255, 0.5), 0 0 40px rgba(100, 181, 246, 0.7); }
+        }
+
+        .orb.center:hover {
+            transform: scale(1.15);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes orbFloat {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .word-display {
+            text-align: center;
+            font-size: 1.6em;
+            min-height: 60px;
+            height: 60px;
+            padding: 10px;
+            background: rgba(179, 157, 219, 0.15);
+            border-radius: 15px;
+            margin: 10px 0;
+            border: 2px solid rgba(156, 39, 176, 0.3);
+            letter-spacing: 3px;
+            font-weight: bold;
+            color: #7e57c2;
+            flex-shrink: 0;
+            box-shadow: inset 0 0 15px rgba(179, 157, 219, 0.2);
+            font-family: 'Cinzel', serif;
+            text-shadow: 0 0 10px rgba(126, 87, 194, 0.2);
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .controls {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            flex-shrink: 0;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #b39ddb, #9575cd);
+            padding: 8px 20px;
+            width: auto;
+            font-size: 0.9em;
+            border: 2px solid rgba(156, 39, 176, 0.3);
+            color: #ffffff;
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #ce93d8, #ba68c8);
+            color: #ffffff;
+        }
+
+        .btn-reveal {
+            background: linear-gradient(135deg, #64b5f6, #42a5f5);
+            border-color: rgba(33, 150, 243, 0.3);
+        }
+
+        .btn-reveal:hover {
+            background: linear-gradient(135deg, #90caf9, #64b5f6);
+        }
+
+        .btn-shuffle {
+            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+            color: #2d3436;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(179, 157, 219, 0.15);
+            border-radius: 15px;
+            flex-shrink: 0;
+            border: 1px solid rgba(156, 39, 176, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #7e57c2;
+            text-shadow: 0 0 10px rgba(126, 87, 194, 0.3);
+        }
+
+        .stat-label {
+            font-size: 0.8em;
+            color: #9575cd;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .message {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: linear-gradient(135deg, rgba(129, 199, 132, 0.95), rgba(102, 187, 106, 0.95));
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1em;
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+            z-index: 2000;
+            pointer-events: none;
+            animation: messageFloat 3s ease-in-out forwards;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .message.error {
+            background: linear-gradient(135deg, rgba(239, 83, 80, 0.95), rgba(229, 115, 115, 0.95));
+            box-shadow: 0 8px 25px rgba(244, 67, 54, 0.4);
+        }
+
+        .message.success {
+            background: linear-gradient(135deg, rgba(129, 199, 132, 0.95), rgba(102, 187, 106, 0.95));
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+        }
+
+        @keyframes messageFloat {
+            0% {
+                transform: translateX(-50%) translateY(-100px);
+                opacity: 0;
+            }
+            10% {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+            90% {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-50%) translateY(-100px);
+                opacity: 0;
+            }
+        }
+
+        /* Scrollbar styling */
+        .modal::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .modal::-webkit-scrollbar-track {
+            background: rgba(179, 157, 219, 0.2);
+            border-radius: 10px;
+        }
+
+        .modal::-webkit-scrollbar-thumb {
+            background: rgba(156, 39, 176, 0.4);
+            border-radius: 10px;
+        }
+
+        .modal::-webkit-scrollbar-thumb:hover {
+            background: rgba(156, 39, 176, 0.6);
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(179, 157, 219, 0.85);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(243, 229, 245, 0.98) 100%);
+            border: 2px solid rgba(156, 39, 176, 0.3);
+            border-radius: 30px;
+            padding: 40px;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(126, 87, 194, 0.3), 0 0 40px rgba(179, 157, 219, 0.2);
+            animation: modalSlideIn 0.3s;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal h2 {
+            color: #7e57c2;
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 1.8em;
+            text-shadow: 0 0 15px rgba(126, 87, 194, 0.3);
+            letter-spacing: 2px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(179, 157, 219, 0.3);
+            border: 2px solid rgba(156, 39, 176, 0.4);
+            color: #7e57c2;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            box-shadow: 0 0 15px rgba(179, 157, 219, 0.3);
+        }
+
+        .modal-close:hover {
+            background: rgba(156, 39, 176, 0.4);
+            transform: rotate(90deg);
+            box-shadow: 0 0 20px rgba(156, 39, 176, 0.4);
+        }
+
+        .all-words-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .word-item {
+            padding: 10px;
+            background: rgba(179, 157, 219, 0.2);
+            border-radius: 10px;
+            text-align: center;
+            font-size: 0.95em;
+            color: #7e57c2;
+            border: 1px solid rgba(156, 39, 176, 0.3);
+        }
+
+        .word-item.pangram {
+            background: linear-gradient(135deg, rgba(100, 181, 246, 0.4), rgba(66, 165, 245, 0.5));
+            font-weight: bold;
+            color: #1976d2;
+            border-color: rgba(33, 150, 243, 0.5);
+            box-shadow: 0 0 15px rgba(100, 181, 246, 0.3);
+        }
+        
+        .word-item.intended-pangram {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.5), rgba(255, 152, 0, 0.6));
+            font-weight: bold;
+            color: #f57c00;
+            border: 2px solid rgba(255, 152, 0, 0.7);
+            box-shadow: 0 0 20px rgba(255, 193, 7, 0.5), 0 0 30px rgba(255, 152, 0, 0.3);
+            font-size: 1.1em;
+            animation: intendedGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes intendedGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 193, 7, 0.5), 0 0 30px rgba(255, 152, 0, 0.3); }
+            50% { box-shadow: 0 0 25px rgba(255, 193, 7, 0.7), 0 0 40px rgba(255, 152, 0, 0.5); }
+        }
+
+        .word-item.found {
+            opacity: 0.5;
+            text-decoration: line-through;
+        }
+
+        .modal-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(179, 157, 219, 0.15);
+            border-radius: 15px;
+            border: 1px solid rgba(156, 39, 176, 0.2);
+        }
+
+        .modal-stats .stat-number {
+            color: #7e57c2;
+        }
+
+        .modal-stats .stat-label {
+            color: #9575cd;
+        }
+
+        .btn-reveal {
+            background: linear-gradient(135deg, #a29bfe, #74b9ff);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 5px;
+            }
+
+            .container {
+                padding: 12px;
+                border-radius: 20px;
+                max-height: 100vh;
+            }
+
+            h1 {
+                font-size: 1.5em;
+                margin-bottom: 2px;
+            }
+
+            .subtitle {
+                font-size: 0.85em;
+                margin-bottom: 8px;
+            }
+
+            .hive-container {
+                width: 240px;
+                height: 240px;
+                margin: 8px auto;
+            }
+
+            .orb {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2em;
+                border: 2px solid rgba(156, 39, 176, 0.4);
+            }
+
+            .orb.center {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5em;
+                border: 3px solid rgba(33, 150, 243, 0.5);
+            }
+
+            .word-display {
+                font-size: 1.2em;
+                min-height: 38px;
+                padding: 6px;
+                margin: 6px 0;
+                letter-spacing: 2px;
+            }
+
+            .stats {
+                padding: 6px;
+                margin: 6px 0;
+            }
+
+            .stat-number {
+                font-size: 1.2em;
+            }
+
+            .stat-label {
+                font-size: 0.7em;
+            }
+
+            .controls {
+                gap: 5px;
+                margin-bottom: 10px;
+            }
+
+            .btn {
+                padding: 9px 18px;
+                font-size: 0.85em;
+                margin-top: 4px;
+            }
+
+            .btn-secondary {
+                padding: 5px 12px;
+                font-size: 0.8em;
+            }
+
+            #puzzleTitle {
+                font-size: 0.95em;
+                margin-bottom: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✨ Mystical Word Spell 🔮</h1>
+        <p class="subtitle">Conjure words with your enchanted letters!</p>
+
+        <!-- Setup Section -->
+        <div class="setup-section" id="setupSection">
+            <button class="btn" onclick="loadDailyPuzzle()">🌙 Begin Today's Quest</button>
+        </div>
+
+        <!-- Game Section -->
+        <div class="game-section" id="gameSection">
+            <div id="puzzleTitle" style="text-align: center; color: #f06292; font-size: 1.3em; margin-bottom: 15px; font-weight: bold;"></div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="wordCount">0</div>
+                    <div class="stat-label">Words Found</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="earnedPoints">0</div>
+                    <div class="stat-label">Points</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="letterCount">0</div>
+                    <div class="stat-label">Letters</div>
+                </div>
+                <div class="stat-item" id="pangramStat" style="display: none;">
+                    <div class="stat-number"><span id="pangramCount">0</span>/<span id="totalPangrams">0</span></div>
+                    <div class="stat-label">Pangrams</div>
+                </div>
+            </div>
+
+            <div class="rank-display" id="rankDisplay">
+                <div class="rank-info">
+                    <div class="rank-title rank-beginner" id="rankTitle">Beginner</div>
+                    <div class="rank-emoji-progress" id="rankEmojiProgress">
+                        <!-- Emoji progress will be populated by JavaScript -->
+                    </div>
+                    <div class="rank-percentage" id="rankPercentage">0%</div>
+                </div>
+                <div class="rank-progress-bar">
+                    <div class="rank-progress-fill" id="rankProgressFill" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <div class="word-display" id="currentWord"></div>
+
+            <div class="hive-container" id="hiveContainer"></div>
+
+            <div class="controls">
+                <button class="btn btn-secondary" onclick="deleteLastLetter()">⬅️ Undo</button>
+                <button class="btn btn-secondary btn-shuffle" onclick="shuffleLetters()">✨ Shuffle</button>
+                <button class="btn btn-secondary" onclick="clearWord()">🗑️ Clear</button>
+                <button class="btn" onclick="submitWord()">✨ Cast Spell</button>
+            </div>
+
+            <button class="btn btn-reveal" onclick="showFoundWords()">⭐ Your Enchantments</button>
+            <button class="btn btn-reveal" onclick="showAllWords()">👁️ Reveal All Secrets</button>
+            <button class="btn btn-reveal" onclick="showTodayStats()">📊 Today's Stats</button>
+        </div>
+
+        <!-- Modal for Today's Stats -->
+        <div class="modal-overlay" id="statsModal" onclick="closeModal(event)">
+            <div class="modal" onclick="event.stopPropagation()">
+                <button class="modal-close" onclick="closeModal()">✕</button>
+                <h2>📊 Your Stats</h2>
+                
+                <!-- Today's Progress -->
+                <h3 style="color: #7e57c2; text-align: center; margin: 25px 0 15px 0; font-size: 1.3em;">📅 Today's Progress</h3>
+                <div class="modal-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="statsWordsFound">0</div>
+                        <div class="stat-label">Words Found</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="statsPointsEarned">0</div>
+                        <div class="stat-label">Points Earned</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="statsPercentage">0%</div>
+                        <div class="stat-label">Completion</div>
+                    </div>
+                </div>
+                <div style="padding: 15px 20px 20px 20px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+                        <div style="padding: 15px; background: rgba(179, 157, 219, 0.15); border-radius: 12px; text-align: center;">
+                            <div style="font-size: 0.9em; color: #7e57c2; margin-bottom: 5px;">🏆 Current</div>
+                            <div style="font-size: 1.1em; font-weight: bold; color: #9575cd;" id="statsCurrentRank">Beginner</div>
+                        </div>
+                        <div style="padding: 15px; background: rgba(179, 157, 219, 0.15); border-radius: 12px; text-align: center;">
+                            <div style="font-size: 0.9em; color: #7e57c2; margin-bottom: 5px;">⭐ Best Today</div>
+                            <div style="font-size: 1.1em; font-weight: bold; color: #9575cd;" id="statsBestRank">Beginner</div>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+                        <div style="padding: 15px; background: rgba(179, 157, 219, 0.15); border-radius: 12px; text-align: center;">
+                            <div style="font-size: 0.9em; color: #7e57c2; margin-bottom: 5px;">💫 Pangrams</div>
+                            <div style="font-size: 1.1em; font-weight: bold; color: #9575cd;" id="statsPangramsFound">0 / 0</div>
+                        </div>
+                        <div style="padding: 15px; background: rgba(179, 157, 219, 0.15); border-radius: 12px; text-align: center;">
+                            <div style="font-size: 0.9em; color: #7e57c2; margin-bottom: 5px;">📈 Longest</div>
+                            <div style="font-size: 1.1em; font-weight: bold; color: #9575cd;" id="statsLongestWord">-</div>
+                        </div>
+                    </div>
+                    <div style="padding: 15px; background: rgba(179, 157, 219, 0.15); border-radius: 12px; text-align: center;">
+                        <div style="font-size: 0.9em; color: #7e57c2; margin-bottom: 5px;">🌟 Today's Pangram</div>
+                        <div style="font-size: 1.1em; font-weight: bold;" id="statsTodaysPangram">Not found yet</div>
+                    </div>
+                </div>
+                
+                <!-- Historical Stats -->
+                <h3 style="color: #7e57c2; text-align: center; margin: 25px 0 15px 0; font-size: 1.3em; border-top: 2px solid rgba(156, 39, 176, 0.2); padding-top: 20px;">🏅 All-Time Stats</h3>
+                <div class="modal-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="historyGamesPlayed">0</div>
+                        <div class="stat-label">Games Played</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="historyCurrentStreak">0</div>
+                        <div class="stat-label">Day Streak</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="historyAvgCompletion">0%</div>
+                        <div class="stat-label">Avg Completion</div>
+                    </div>
+                </div>
+                <div style="padding: 15px 20px 20px 20px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+                        <div style="padding: 15px; background: rgba(179, 157, 219, 0.15); border-radius: 12px; text-align: center;">
+                            <div style="font-size: 0.9em; color: #7e57c2; margin-bottom: 5px;">👑 Best Rank</div>
+                            <div style="font-size: 1.1em; font-weight: bold; color: #9575cd;" id="historyBestRank">Beginner</div>
+                        </div>
+                        <div style="padding: 15px; background: rgba(179, 157, 219, 0.15); border-radius: 12px; text-align: center;">
+                            <div style="font-size: 0.9em; color: #7e57c2; margin-bottom: 5px;">🔥 Best Score</div>
+                            <div style="font-size: 1.1em; font-weight: bold; color: #9575cd;" id="historyBestScore">0</div>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+                        <div style="padding: 15px; background: rgba(179, 157, 219, 0.15); border-radius: 12px; text-align: center;">
+                            <div style="font-size: 0.9em; color: #7e57c2; margin-bottom: 5px;">📚 Total Words</div>
+                            <div style="font-size: 1.1em; font-weight: bold; color: #9575cd;" id="historyTotalWords">0</div>
+                        </div>
+                        <div style="padding: 15px; background: rgba(179, 157, 219, 0.15); border-radius: 12px; text-align: center;">
+                            <div style="font-size: 0.9em; color: #7e57c2; margin-bottom: 5px;">✨ Total Pangrams</div>
+                            <div style="font-size: 1.1em; font-weight: bold; color: #9575cd;" id="historyTotalPangrams">0</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Rank Achievements -->
+                    <div style="padding: 18px; background: rgba(179, 157, 219, 0.15); border-radius: 12px; margin-top: 12px;">
+                        <div style="font-size: 1.1em; color: #7e57c2; margin-bottom: 12px; text-align: center; font-weight: bold;">🏆 Rank Achievements</div>
+                        <div id="rankAchievements" style="font-size: 0.9em; color: #9575cd; line-height: 1.8;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal for All Words -->
+        <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+            <div class="modal" onclick="event.stopPropagation()">
+                <button class="modal-close" onclick="closeModal()">✕</button>
+                <h2>� The Complete Grimoire</h2>
+                <div class="modal-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="modalTotalWords">0</div>
+                        <div class="stat-label">Total Words</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="modalTotalPangrams">0</div>
+                        <div class="stat-label">Pangrams</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="modalTotalPoints">0</div>
+                        <div class="stat-label">Total Points</div>
+                    </div>
+                </div>
+                <div class="all-words-list" id="allWordsList"></div>
+            </div>
+        </div>
+
+        <!-- Modal for Found Words -->
+        <div class="modal-overlay" id="foundWordsModal" onclick="closeModal(event)">
+            <div class="modal" onclick="event.stopPropagation()">
+                <button class="modal-close" onclick="closeModal()">✕</button>
+                <h2>⭐ Your Enchantments</h2>
+                <div class="modal-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" id="foundWordsCount">0</div>
+                        <div class="stat-label">Words Found</div>
+                    </div>
+                </div>
+                <div class="all-words-list" id="foundWordsList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let centerLetter = '';
+        let outerLetters = [];
+        let allLetters = [];
+        let currentWord = '';
+        let foundWords = new Set();
+        let letterPositions = [];
+        let validWords = new Set();
+        let currentPuzzle = null;
+        let possiblePangrams = [];
+        let totalPoints = 0;
+        let earnedPoints = 0;
+        let allPossibleWords = [];
+        let currentRank = 'Beginner';
+        let todaysPangramFound = false;
+        let bestRankToday = 'Beginner';
+        const STORAGE_KEY = 'spellingBeeProgress';
+        const HISTORY_KEY = 'spellingBeeHistory';
+        let historicalStats = {};
+
+        // Load word list on page load
+        window.addEventListener('DOMContentLoaded', async () => {
+            await loadWordList();
+            loadHistoricalStats();
+            loadProgress();
+        });
+
+        function showMessage(text, type = 'success') {
+            const message = document.createElement('div');
+            message.className = `message ${type}`;
+            message.textContent = text;
+            document.body.appendChild(message);
+            
+            setTimeout(() => {
+                message.remove();
+            }, 3000);
+        }
+
+        async function loadWordList() {
+            try {
+                const response = await fetch('words.txt');
+                const text = await response.text();
+                const words = text.split('\n').map(w => w.trim().toLowerCase()).filter(w => w.length >= 4);
+                validWords = new Set(words);
+                console.log(`Loaded ${validWords.size} words`);
+            } catch (error) {
+                console.error('Error loading word list:', error);
+            }
+        }
+
+        function getTodayDate() {
+            const now = new Date();
+            return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+        }
+
+        function loadHistoricalStats() {
+            try {
+                const saved = localStorage.getItem(HISTORY_KEY);
+                if (saved) {
+                    historicalStats = JSON.parse(saved);
+                } else {
+                    // Initialize empty historical stats
+                    historicalStats = {
+                        gamesPlayed: 0,
+                        totalWordsFound: 0,
+                        totalPointsEarned: 0,
+                        totalPangramsFound: 0,
+                        rankAchievements: {
+                            'Beginner': 0,
+                            'Good Start': 0,
+                            'Moving Up': 0,
+                            'Good': 0,
+                            'Solid': 0,
+                            'Nice': 0,
+                            'Great': 0,
+                            'Amazing': 0,
+                            'Genius': 0
+                        },
+                        highestRankEver: 'Beginner',
+                        bestSingleDayScore: 0,
+                        bestSingleDayPercentage: 0,
+                        averageCompletion: 0,
+                        currentStreak: 0,
+                        lastPlayedDate: null,
+                        totalCompletionSum: 0
+                    };
+                }
+            } catch (error) {
+                console.error('Error loading historical stats:', error);
+            }
+        }
+
+        function saveHistoricalStats() {
+            localStorage.setItem(HISTORY_KEY, JSON.stringify(historicalStats));
+        }
+
+        function updateHistoricalStats(isEndOfDay = false) {
+            const today = getTodayDate();
+            const percentage = totalPoints === 0 ? 0 : Math.floor((earnedPoints / totalPoints) * 100);
+            const pangramsFoundCount = Array.from(foundWords).filter(word => possiblePangrams.includes(word)).length;
+            
+            // Update streak
+            if (historicalStats.lastPlayedDate) {
+                const lastDate = new Date(historicalStats.lastPlayedDate);
+                const todayDate = new Date(today);
+                const dayDiff = Math.floor((todayDate - lastDate) / (1000 * 60 * 60 * 24));
+                
+                if (dayDiff === 1) {
+                    historicalStats.currentStreak++;
+                } else if (dayDiff > 1) {
+                    historicalStats.currentStreak = 1;
+                }
+            } else {
+                historicalStats.currentStreak = 1;
+            }
+            
+            historicalStats.lastPlayedDate = today;
+            
+            // If this is end of day or resetting, finalize the stats for this game
+            if (isEndOfDay) {
+                historicalStats.gamesPlayed++;
+                historicalStats.totalWordsFound += foundWords.size;
+                historicalStats.totalPointsEarned += earnedPoints;
+                historicalStats.totalPangramsFound += pangramsFoundCount;
+                
+                // Update rank achievements
+                if (historicalStats.rankAchievements[bestRankToday] !== undefined) {
+                    historicalStats.rankAchievements[bestRankToday]++;
+                }
+                
+                // Update highest rank ever
+                const rankOrder = ['Beginner', 'Good Start', 'Moving Up', 'Good', 'Solid', 'Nice', 'Great', 'Amazing', 'Genius'];
+                const currentIndex = rankOrder.indexOf(bestRankToday);
+                const highestIndex = rankOrder.indexOf(historicalStats.highestRankEver);
+                if (currentIndex > highestIndex) {
+                    historicalStats.highestRankEver = bestRankToday;
+                }
+                
+                // Update best single day stats
+                if (earnedPoints > historicalStats.bestSingleDayScore) {
+                    historicalStats.bestSingleDayScore = earnedPoints;
+                }
+                if (percentage > historicalStats.bestSingleDayPercentage) {
+                    historicalStats.bestSingleDayPercentage = percentage;
+                }
+                
+                // Update average completion
+                historicalStats.totalCompletionSum += percentage;
+                historicalStats.averageCompletion = Math.floor(historicalStats.totalCompletionSum / historicalStats.gamesPlayed);
+            }
+            
+            saveHistoricalStats();
+        }
+
+        function getTodayDate() {
+            const now = new Date();
+            return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+        }
+
+        function saveProgress() {
+            const today = getTodayDate();
+            const pangramsFoundCount = Array.from(foundWords).filter(word => possiblePangrams.includes(word)).length;
+            const progress = {
+                date: today,
+                puzzleDate: currentPuzzle?.date,
+                foundWords: Array.from(foundWords),
+                earnedPoints: earnedPoints,
+                currentRank: currentRank,
+                todaysPangramFound: todaysPangramFound,
+                bestRankToday: bestRankToday,
+                pangramsFoundCount: pangramsFoundCount
+            };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+        }
+
+        function loadProgress() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (!saved) return;
+                
+                const progress = JSON.parse(saved);
+                const today = getTodayDate();
+                
+                // If it's a new day, save yesterday's stats to history before clearing
+                if (progress.date !== today) {
+                    // Temporarily restore the old progress to calculate final stats
+                    const oldFoundWords = new Set(progress.foundWords || []);
+                    const oldEarnedPoints = progress.earnedPoints || 0;
+                    const oldBestRank = progress.bestRankToday || 'Beginner';
+                    
+                    // Calculate and save historical stats for completed day
+                    foundWords = oldFoundWords;
+                    earnedPoints = oldEarnedPoints;
+                    bestRankToday = oldBestRank;
+                    updateHistoricalStats(true); // Mark as end of day
+                    
+                    // Reset for new day
+                    foundWords = new Set();
+                    earnedPoints = 0;
+                    bestRankToday = 'Beginner';
+                    localStorage.removeItem(STORAGE_KEY);
+                    return;
+                }
+                
+                // Only restore if same puzzle
+                if (progress.puzzleDate && currentPuzzle?.date === progress.puzzleDate) {
+                    foundWords = new Set(progress.foundWords || []);
+                    earnedPoints = progress.earnedPoints || 0;
+                    currentRank = progress.currentRank || 'Beginner';
+                    todaysPangramFound = progress.todaysPangramFound || false;
+                    bestRankToday = progress.bestRankToday || 'Beginner';
+                    
+                    // Update display
+                    document.getElementById('wordCount').textContent = foundWords.size;
+                    document.getElementById('earnedPoints').textContent = earnedPoints;
+                    
+                    // Restore pangram count
+                    const pangramsFoundCount = progress.pangramsFoundCount || 0;
+                    document.getElementById('pangramCount').textContent = pangramsFoundCount;
+                    
+                    updateRankDisplay();
+                }
+            } catch (error) {
+                console.error('Error loading progress:', error);
+            }
+        }
+
+        async function loadDailyPuzzle() {
+            try {
+                const response = await fetch('puzzles.json');
+                const data = await response.json();
+                
+                // Get today's date in YYYY-MM-DD format (local time)
+                const today = getTodayDate();
+                
+                console.log('Looking for puzzle with date:', today);
+                
+                // Find today's puzzle or use the first one
+                let puzzle = data.puzzles.find(p => p.date === today);
+                if (!puzzle) {
+                    puzzle = data.puzzles[0];
+                }
+                
+                console.log('Selected puzzle:', puzzle);
+                
+                currentPuzzle = puzzle;
+                
+                // Parse letters and remove duplicates (preserve case from JSON)
+                centerLetter = puzzle.centerLetter.toUpperCase();
+                
+                // Convert string to array and remove duplicates (case-insensitive, including center letter)
+                const outerLettersStr = puzzle.outerLetters;
+                const centerUpper = centerLetter.toUpperCase();
+                const uniqueOuterLetters = [...new Set(outerLettersStr.split(''))].filter(letter => 
+                    letter.toUpperCase() !== centerUpper
+                );
+                outerLetters = uniqueOuterLetters.map(l => l.toUpperCase());
+                
+                allLetters = [centerLetter, ...outerLetters];
+                
+                document.getElementById('letterCount').textContent = allLetters.length;
+                document.getElementById('puzzleTitle').textContent = puzzle.title;
+                
+                // Calculate possible pangrams and total points
+                await calculatePuzzleStats();
+                document.getElementById('pangramStat').style.display = 'block';
+                document.getElementById('totalPangrams').textContent = possiblePangrams.length;
+                
+                document.getElementById('setupSection').style.display = 'none';
+                document.getElementById('gameSection').classList.add('active');
+                
+                createHive();
+                loadProgress(); // Load after puzzle is set up
+            } catch (error) {
+                console.error('Error loading puzzle:', error);
+            }
+        }
+
+        async function calculatePuzzleStats() {
+            possiblePangrams = [];
+            totalPoints = 0;
+            allPossibleWords = [];
+            
+            if (validWords.size === 0) return;
+            
+            // Find all valid words for this puzzle
+            const puzzleLetters = allLetters.map(l => l.toLowerCase());
+            const centerLower = centerLetter.toLowerCase();
+            const intendedPangramLower = currentPuzzle?.intendedPangram?.toLowerCase();
+            
+            for (let word of validWords) {
+                // Must be 4+ letters and contain center letter
+                if (word.length < 4 || !word.includes(centerLower)) continue;
+                
+                // Check if all letters in word are available
+                const wordLetters = word.split('');
+                const isValid = wordLetters.every(letter => puzzleLetters.includes(letter));
+                
+                if (isValid) {
+                    // Calculate points: 4-letter word = 1pt, longer = length, pangram bonus = 7
+                    const basePoints = word.length === 4 ? 1 : word.length;
+                    
+                    // Check if pangram (uses all letters)
+                    const isPangram = puzzleLetters.every(letter => word.includes(letter));
+                    const isIntendedPangram = intendedPangramLower && word === intendedPangramLower;
+                    
+                    let wordPoints = basePoints + (isPangram ? 7 : 0);
+                    
+                    // Apply multipliers
+                    if (isIntendedPangram) {
+                        wordPoints = Math.floor(wordPoints * 3); // 3x for intended pangram
+                    } else if (isPangram) {
+                        wordPoints = Math.floor(wordPoints * 1.5); // 1.5x for other pangrams
+                    }
+                    
+                    allPossibleWords.push({
+                        word: word,
+                        isPangram: isPangram,
+                        isIntendedPangram: isIntendedPangram,
+                        points: wordPoints
+                    });
+                    
+                    if (isPangram) {
+                        possiblePangrams.push(word);
+                    }
+                    
+                    totalPoints += wordPoints;
+                }
+            }
+            
+            // Sort by length then alphabetically
+            allPossibleWords.sort((a, b) => {
+                if (a.word.length !== b.word.length) {
+                    return b.word.length - a.word.length;
+                }
+                return a.word.localeCompare(b.word);
+            });
+            
+            console.log(`Puzzle stats: ${allPossibleWords.length} words, ${possiblePangrams.length} pangrams, ${totalPoints} total points`);
+            console.log('Pangrams:', possiblePangrams);
+        }
+
+        function createHive() {
+            const container = document.getElementById('hiveContainer');
+            container.innerHTML = '';
+
+            // Create shuffled positions for outer letters
+            letterPositions = [...outerLetters];
+            shuffleArray(letterPositions);
+
+            // Add center orb
+            const centerOrb = createOrb(centerLetter, true);
+            container.appendChild(centerOrb);
+
+            // Arrange outer letters in a circle around center
+            const numOuter = letterPositions.length;
+            // Responsive radius based on screen size
+            const isMobile = window.innerWidth <= 600;
+            const radius = isMobile ? 85 : 115; // Distance from center
+            const orbHalfSize = isMobile ? 25 : 35; // Half of orb width
+            
+            letterPositions.forEach((letter, index) => {
+                const orb = createOrb(letter, false);
+                
+                // Calculate position on circle
+                // Start from top (-90 degrees) and distribute evenly
+                const angle = (index / numOuter) * 2 * Math.PI - Math.PI / 2;
+                const x = Math.cos(angle) * radius;
+                const y = Math.sin(angle) * radius;
+                
+                orb.style.left = `calc(50% + ${x}px - ${orbHalfSize}px)`;
+                orb.style.top = `calc(50% + ${y}px - ${orbHalfSize}px)`;
+                
+                // Add slight delay for animation
+                orb.style.animation = `orbFloat 3s ease-in-out infinite ${index * 0.1}s`;
+                
+                container.appendChild(orb);
+            });
+        }
+
+        function createOrb(letter, isCenter) {
+            const orb = document.createElement('div');
+            orb.className = isCenter ? 'orb center' : 'orb';
+            orb.textContent = letter;
+            orb.onclick = () => addLetter(letter);
+            return orb;
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function shuffleLetters() {
+            createHive();
+        }
+
+        function addLetter(letter) {
+            currentWord += letter;
+            updateWordDisplay();
+        }
+
+        function deleteLastLetter() {
+            if (currentWord.length > 0) {
+                currentWord = currentWord.slice(0, -1);
+                updateWordDisplay();
+            }
+        }
+
+        function clearWord() {
+            currentWord = '';
+            updateWordDisplay();
+        }
+
+        function updateWordDisplay() {
+            document.getElementById('currentWord').textContent = currentWord || '';
+        }
+
+        function submitWord() {
+            const word = currentWord.toLowerCase();
+            
+            if (word.length < 4) {
+                showMessage('Words must be at least 4 letters! 📏', 'error');
+                clearWord();
+                return;
+            }
+
+            if (!currentWord.toUpperCase().includes(centerLetter)) {
+                showMessage(`Must use center letter "${centerLetter}"! 🌟`, 'error');
+                clearWord();
+                return;
+            }
+
+            // Check if all letters are valid
+            const wordLetters = currentWord.toUpperCase().split('');
+            const invalidLetter = wordLetters.find(l => !allLetters.includes(l));
+            if (invalidLetter) {
+                showMessage('Use only available letters! ❌', 'error');
+                clearWord();
+                return;
+            }
+
+            if (foundWords.has(word)) {
+                showMessage('Already found! 🔄', 'error');
+                clearWord();
+                return;
+            }
+
+            // Validate against word list if available
+            if (validWords.size > 0 && !validWords.has(word)) {
+                showMessage('Not in word list! 📖', 'error');
+                clearWord();
+                return;
+            }
+
+            // Check if it's a pangram (uses all letters)
+            const isPangram = allLetters.every(letter => 
+                currentWord.toUpperCase().includes(letter)
+            );
+            
+            const isIntendedPangram = currentPuzzle?.intendedPangram?.toLowerCase() === word;
+
+            // Calculate points
+            const basePoints = word.length === 4 ? 1 : word.length;
+            const bonusPoints = isPangram ? 7 : 0;
+            let totalWordPoints = basePoints + bonusPoints;
+            
+            // Apply multipliers
+            if (isIntendedPangram) {
+                totalWordPoints = Math.floor(totalWordPoints * 3); // 3x for intended pangram
+            } else if (isPangram) {
+                totalWordPoints = Math.floor(totalWordPoints * 1.5); // 1.5x for other pangrams
+            }
+
+            foundWords.add(word);
+            updateStats(isPangram, totalWordPoints);
+            
+            // Show message for today's pangram
+            if (isIntendedPangram) {
+                todaysPangramFound = true;
+                showMessage(`🌟 TODAY'S PANGRAM! +${totalWordPoints} points (3x)! 🌟`, 'success');
+            } else if (isPangram) {
+                showMessage(`PANGRAM! +${totalWordPoints} points (1.5x)! 🎊✨`, 'success');
+            } else {
+                // Random success messages for regular words
+                const messages = [
+                    `Nice! +${totalWordPoints} ⭐`,
+                    `Great! +${totalWordPoints} ✨`,
+                    `Perfect! +${totalWordPoints} 💫`,
+                    `Excellent! +${totalWordPoints} 🌟`,
+                    `Well done! +${totalWordPoints} 🎯`
+                ];
+                showMessage(messages[Math.floor(Math.random() * messages.length)], 'success');
+            }
+            
+            saveProgress();
+            clearWord();
+        }
+
+
+
+        function getRank(percentage) {
+            // Lognormal curve distribution with 60% for genius
+            if (percentage >= 60) return { name: 'Genius', class: 'rank-genius', icon: '🎓', threshold: 60 };
+            if (percentage >= 50) return { name: 'Amazing', class: 'rank-amazing', icon: '🌟', threshold: 50 };
+            if (percentage >= 40) return { name: 'Great', class: 'rank-great', icon: '⭐', threshold: 40 };
+            if (percentage >= 30) return { name: 'Nice', class: 'rank-nice', icon: '💜', threshold: 30 };
+            if (percentage >= 22) return { name: 'Solid', class: 'rank-solid', icon: '💎', threshold: 22 };
+            if (percentage >= 15) return { name: 'Good', class: 'rank-good', icon: '👍', threshold: 15 };
+            if (percentage >= 9) return { name: 'Moving Up', class: 'rank-moving-up', icon: '⬆️', threshold: 9 };
+            if (percentage >= 4) return { name: 'Good Start', class: 'rank-good-start', icon: '🌱', threshold: 4 };
+            return { name: 'Beginner', class: 'rank-beginner', icon: '🥚', threshold: 0 };
+        }
+
+        function getAllRanks() {
+            return [
+                { name: 'Beginner', class: 'rank-beginner', icon: '🥚', threshold: 0 },
+                { name: 'Good Start', class: 'rank-good-start', icon: '🌱', threshold: 4 },
+                { name: 'Moving Up', class: 'rank-moving-up', icon: '⬆️', threshold: 9 },
+                { name: 'Good', class: 'rank-good', icon: '👍', threshold: 15 },
+                { name: 'Solid', class: 'rank-solid', icon: '💎', threshold: 22 },
+                { name: 'Nice', class: 'rank-nice', icon: '💜', threshold: 30 },
+                { name: 'Great', class: 'rank-great', icon: '⭐', threshold: 40 },
+                { name: 'Amazing', class: 'rank-amazing', icon: '🌟', threshold: 50 },
+                { name: 'Genius', class: 'rank-genius', icon: '🎓', threshold: 60 }
+            ];
+        }
+
+        function updateRankLadder(currentPercentage) {
+            const emojiProgress = document.getElementById('rankEmojiProgress');
+            if (!emojiProgress) return;
+            
+            const ranks = getAllRanks();
+            const currentRank = getRank(currentPercentage);
+            
+            // Find next rank
+            const currentIndex = ranks.findIndex(r => r.name === currentRank.name);
+            const nextRank = ranks[currentIndex + 1];
+            
+            if (nextRank) {
+                emojiProgress.innerHTML = `
+                    <span>${currentRank.icon}</span>
+                    <span style="color: #9575cd; font-size: 0.9em;">→</span>
+                    <span style="opacity: 0.5;">${nextRank.icon}</span>
+                `;
+            } else {
+                emojiProgress.innerHTML = `
+                    <span>${currentRank.icon}</span>
+                    <span style="color: #ffd700;">✨</span>
+                `;
+            }
+        }
+
+        function updateRankDisplay() {
+            const rankDisplay = document.getElementById('rankDisplay');
+            const rankTitle = document.getElementById('rankTitle');
+            const rankPercentage = document.getElementById('rankPercentage');
+            const rankProgressFill = document.getElementById('rankProgressFill');
+            
+            // Always show the rank display
+            rankDisplay.style.display = 'block';
+            
+            const percentage = totalPoints === 0 ? 0 : Math.floor((earnedPoints / totalPoints) * 100);
+            const rank = getRank(percentage);
+            
+            // Detect rank up
+            const rankChanged = rank.name !== currentRank;
+            const previousRank = currentRank;
+            
+            if (rankChanged && earnedPoints > 0) {
+                // Trigger rank up animation
+                rankDisplay.classList.add('rank-up');
+                rankTitle.classList.add('rank-up-animation');
+                
+                // Show rank up message
+                showMessage(`🎉 Rank Up: ${rank.name}! 🎉`);
+                
+                // Track best rank
+                const rankOrder = ['Beginner', 'Good Start', 'Moving Up', 'Good', 'Solid', 'Nice', 'Great', 'Amazing', 'Genius'];
+                const currentIndex = rankOrder.indexOf(rank.name);
+                const bestIndex = rankOrder.indexOf(bestRankToday);
+                if (currentIndex > bestIndex) {
+                    bestRankToday = rank.name;
+                }
+                
+                // Show special message for Genius
+                if (rank.name === 'Genius') {
+                    setTimeout(() => {
+                        showMessage('🎓✨ GENIUS ACHIEVED! ✨🎓');
+                    }, 3500);
+                }
+                
+                saveProgress();
+                
+                // Remove animation classes after animation completes
+                setTimeout(() => {
+                    rankDisplay.classList.remove('rank-up');
+                    rankTitle.classList.remove('rank-up-animation');
+                }, 800);
+            }
+            
+            currentRank = rank.name;
+            rankTitle.textContent = rank.name;
+            rankTitle.className = 'rank-title ' + rank.class;
+            rankPercentage.textContent = percentage + '%';
+            rankProgressFill.style.width = percentage + '%';
+            
+            // Update rank ladder
+            updateRankLadder(percentage);
+        }
+
+        function updateStats(isPangram = false, points = 0) {
+            document.getElementById('wordCount').textContent = foundWords.size;
+            
+            // Update points
+            earnedPoints += points;
+            document.getElementById('earnedPoints').textContent = earnedPoints;
+            
+            // Update pangram count
+            if (isPangram) {
+                const pangramCountEl = document.getElementById('pangramCount');
+                const currentCount = parseInt(pangramCountEl.textContent) || 0;
+                pangramCountEl.textContent = currentCount + 1;
+            }
+            
+            // Update total pangrams display
+            if (possiblePangrams.length > 0) {
+                document.getElementById('totalPangrams').textContent = possiblePangrams.length;
+            }
+            
+            updateRankDisplay();
+        }
+
+
+
+        function showAllWords() {
+            const modal = document.getElementById('modalOverlay');
+            const wordsList = document.getElementById('allWordsList');
+            
+            // Update stats
+            document.getElementById('modalTotalWords').textContent = allPossibleWords.length;
+            document.getElementById('modalTotalPangrams').textContent = possiblePangrams.length;
+            document.getElementById('modalTotalPoints').textContent = totalPoints;
+            
+            // Clear and populate words list
+            wordsList.innerHTML = '';
+            
+            // Sort: intended pangram first, then other pangrams, then regular words
+            const sortedWords = [...allPossibleWords].sort((a, b) => {
+                if (a.isIntendedPangram) return -1;
+                if (b.isIntendedPangram) return 1;
+                if (a.isPangram && !b.isPangram) return -1;
+                if (b.isPangram && !a.isPangram) return 1;
+                return a.word.localeCompare(b.word);
+            });
+            
+            sortedWords.forEach(wordData => {
+                const wordEl = document.createElement('div');
+                wordEl.className = 'word-item';
+                
+                if (wordData.isIntendedPangram) {
+                    wordEl.classList.add('intended-pangram');
+                } else if (wordData.isPangram) {
+                    wordEl.classList.add('pangram');
+                }
+                
+                if (foundWords.has(wordData.word)) {
+                    wordEl.classList.add('found');
+                }
+                
+                const multiplier = wordData.isIntendedPangram ? ' (3x)' : (wordData.isPangram ? ' (1.5x)' : '');
+                wordEl.textContent = `${wordData.word} (${wordData.points}${multiplier})`;
+                wordsList.appendChild(wordEl);
+            });
+            
+            modal.classList.add('active');
+        }
+
+        function showFoundWords() {
+            const modal = document.getElementById('foundWordsModal');
+            const foundWordsList = document.getElementById('foundWordsList');
+            
+            // Update stats
+            document.getElementById('foundWordsCount').textContent = foundWords.size;
+            
+            // Clear and populate found words list
+            foundWordsList.innerHTML = '';
+            
+            const sortedFound = Array.from(foundWords).sort();
+            sortedFound.forEach(word => {
+                const wordEl = document.createElement('div');
+                wordEl.className = 'word-item';
+                wordEl.textContent = word;
+                foundWordsList.appendChild(wordEl);
+            });
+            
+            modal.classList.add('active');
+        }
+
+        function showAllWords() {
+            const modal = document.getElementById('modalOverlay');
+            const wordsList = document.getElementById('allWordsList');
+            
+            // Update stats
+            document.getElementById('modalTotalWords').textContent = allPossibleWords.length;
+            document.getElementById('modalTotalPangrams').textContent = possiblePangrams.length;
+            document.getElementById('modalTotalPoints').textContent = totalPoints;
+            
+            // Clear and populate words list
+            wordsList.innerHTML = '';
+            
+            // Sort: intended pangram first, then other pangrams, then regular words
+            const sortedWords = [...allPossibleWords].sort((a, b) => {
+                if (a.isIntendedPangram) return -1;
+                if (b.isIntendedPangram) return 1;
+                if (a.isPangram && !b.isPangram) return -1;
+                if (b.isPangram && !a.isPangram) return 1;
+                return a.word.localeCompare(b.word);
+            });
+            
+            sortedWords.forEach(wordData => {
+                const wordEl = document.createElement('div');
+                wordEl.className = 'word-item';
+                
+                if (wordData.isIntendedPangram) {
+                    wordEl.classList.add('intended-pangram');
+                } else if (wordData.isPangram) {
+                    wordEl.classList.add('pangram');
+                }
+                
+                if (foundWords.has(wordData.word)) {
+                    wordEl.classList.add('found');
+                }
+                
+                const multiplier = wordData.isIntendedPangram ? ' (3x)' : (wordData.isPangram ? ' (1.5x)' : '');
+                wordEl.textContent = `${wordData.word} (${wordData.points}${multiplier})`;
+                wordsList.appendChild(wordEl);
+            });
+            
+            modal.classList.add('active');
+        }
+
+        function closeModal(event) {
+            if (event && event.target !== event.currentTarget) return;
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.getElementById('foundWordsModal').classList.remove('active');
+            document.getElementById('statsModal').classList.remove('active');
+        }
+
+        function showTodayStats() {
+            const modal = document.getElementById('statsModal');
+            
+            // Calculate today's stats
+            const percentage = totalPoints === 0 ? 0 : Math.floor((earnedPoints / totalPoints) * 100);
+            const pangramsFound = Array.from(foundWords).filter(word => {
+                return possiblePangrams.includes(word);
+            }).length;
+            
+            // Find longest word
+            let longestWord = '-';
+            if (foundWords.size > 0) {
+                const wordsArray = Array.from(foundWords);
+                longestWord = wordsArray.reduce((longest, word) => 
+                    word.length > longest.length ? word : longest
+                , '');
+                longestWord = `${longestWord} (${longestWord.length})`;
+            }
+            
+            // Update today's stats
+            document.getElementById('statsWordsFound').textContent = foundWords.size;
+            document.getElementById('statsPointsEarned').textContent = earnedPoints;
+            document.getElementById('statsPercentage').textContent = percentage + '%';
+            document.getElementById('statsCurrentRank').textContent = currentRank;
+            document.getElementById('statsBestRank').textContent = bestRankToday;
+            document.getElementById('statsPangramsFound').textContent = `${pangramsFound} / ${possiblePangrams.length}`;
+            document.getElementById('statsLongestWord').textContent = longestWord;
+            
+            // Update Today's Pangram status
+            const todaysPangramEl = document.getElementById('statsTodaysPangram');
+            if (todaysPangramFound) {
+                todaysPangramEl.textContent = `${currentPuzzle?.intendedPangram || 'Found!'} ✅`;
+                todaysPangramEl.style.color = '#66bb6a';
+            } else {
+                todaysPangramEl.textContent = 'Not found yet';
+                todaysPangramEl.style.color = '#ef5350';
+            }
+            
+            // Update historical stats
+            document.getElementById('historyGamesPlayed').textContent = historicalStats.gamesPlayed || 0;
+            document.getElementById('historyCurrentStreak').textContent = historicalStats.currentStreak || 0;
+            document.getElementById('historyAvgCompletion').textContent = (historicalStats.averageCompletion || 0) + '%';
+            document.getElementById('historyBestRank').textContent = historicalStats.highestRankEver || 'Beginner';
+            document.getElementById('historyBestScore').textContent = historicalStats.bestSingleDayScore || 0;
+            document.getElementById('historyTotalWords').textContent = historicalStats.totalWordsFound || 0;
+            document.getElementById('historyTotalPangrams').textContent = historicalStats.totalPangramsFound || 0;
+            
+            // Display rank achievements
+            const rankAchievementsEl = document.getElementById('rankAchievements');
+            const ranks = ['Genius', 'Amazing', 'Great', 'Nice', 'Solid', 'Good', 'Moving Up', 'Good Start'];
+            const rankEmojis = {
+                'Genius': '🎓',
+                'Amazing': '🌟',
+                'Great': '⭐',
+                'Nice': '💜',
+                'Solid': '💎',
+                'Good': '👍',
+                'Moving Up': '⬆️',
+                'Good Start': '🌱'
+            };
+            
+            let achievementsHTML = '';
+            ranks.forEach(rank => {
+                const count = historicalStats.rankAchievements?.[rank] || 0;
+                if (count > 0) {
+                    achievementsHTML += `<div style="display: flex; justify-content: space-between; padding: 4px 0;">
+                        <span>${rankEmojis[rank]} ${rank}</span>
+                        <span style="font-weight: bold;">${count}x</span>
+                    </div>`;
+                }
+            });
+            
+            if (achievementsHTML === '') {
+                achievementsHTML = '<div style="text-align: center; color: #9575cd; opacity: 0.7;">No rank achievements yet. Keep playing!</div>';
+            }
+            
+            rankAchievementsEl.innerHTML = achievementsHTML;
+            
+            modal.classList.add('active');
+        }
+
+        function closeModal(event) {
+            if (event && event.target !== event.currentTarget) return;
+            document.getElementById('modalOverlay').classList.remove('active');
+            document.getElementById('foundWordsModal').classList.remove('active');
+            document.getElementById('statsModal').classList.remove('active');
+        }
+
+        function resetGame() {
+            // Save historical stats before resetting if any progress was made
+            if (foundWords.size > 0 || earnedPoints > 0) {
+                updateHistoricalStats(true); // Save as completed game
+            }
+            
+            currentWord = '';
+            foundWords.clear();
+            currentPuzzle = null;
+            possiblePangrams = [];
+            allPossibleWords = [];
+            totalPoints = 0;
+            earnedPoints = 0;
+            todaysPangramFound = false;
+            bestRankToday = 'Beginner';
+            localStorage.removeItem(STORAGE_KEY);
+            document.getElementById('setupSection').style.display = 'block';
+            document.getElementById('gameSection').classList.remove('active');
+            document.getElementById('pangramCount').textContent = '0';
+            document.getElementById('totalPangrams').textContent = '0';
+            document.getElementById('earnedPoints').textContent = '0';
+            updateStats();
+        }
+
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (document.getElementById('gameSection').classList.contains('active')) {
+                const key = e.key.toUpperCase();
+                
+                if (allLetters.includes(key)) {
+                    addLetter(key);
+                } else if (e.key === 'Enter') {
+                    submitWord();
+                } else if (e.key === 'Backspace') {
+                    deleteLastLetter();
+                } else if (e.key === 'Escape') {
+                    clearWord();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
