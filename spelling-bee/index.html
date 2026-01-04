@@ -170,7 +170,7 @@
             font-size: 1em;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.15s ease-out;
             box-shadow: 0 5px 15px rgba(126, 87, 194, 0.3), 0 0 15px rgba(126, 87, 194, 0.2);
             font-family: 'Cinzel', serif;
             width: 100%;
@@ -179,6 +179,10 @@
             letter-spacing: 1px;
             position: relative;
             z-index: 2;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
         }
 
         .btn:hover {
@@ -189,7 +193,9 @@
         }
 
         .btn:active {
-            transform: translateY(0);
+            transform: scale(0.95) translateY(0);
+            box-shadow: 0 2px 8px rgba(126, 87, 194, 0.3);
+            background: linear-gradient(135deg, #7e57c2, #673ab7, #5e35b1);
         }
 
         .game-section {
@@ -363,9 +369,12 @@
             font-weight: bold;
             color: #ffffff;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transition: transform 0.15s ease-out, box-shadow 0.15s ease-out;
             text-transform: uppercase;
             user-select: none;
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
             box-shadow: 
                 0 8px 20px rgba(156, 39, 176, 0.3),
                 inset 0 0 20px rgba(255, 255, 255, 0.3),
@@ -387,7 +396,7 @@
         }
 
         .orb:hover {
-            transform: scale(1.2);
+            transform: scale(1.15);
             box-shadow: 
                 0 12px 30px rgba(156, 39, 176, 0.5),
                 inset 0 0 30px rgba(255, 255, 255, 0.4),
@@ -397,7 +406,11 @@
         }
 
         .orb:active {
-            transform: scale(0.9);
+            transform: scale(0.85);
+            box-shadow: 
+                0 4px 12px rgba(156, 39, 176, 0.4),
+                inset 0 0 15px rgba(255, 255, 255, 0.2),
+                0 0 10px rgba(179, 157, 219, 0.3);
         }
 
         .orb.center {
@@ -482,11 +495,20 @@
             font-size: 0.9em;
             border: 2px solid rgba(156, 39, 176, 0.3);
             color: #ffffff;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
         }
 
         .btn-secondary:hover {
             background: linear-gradient(135deg, #ce93d8, #ba68c8);
             color: #ffffff;
+        }
+
+        .btn-secondary:active {
+            transform: scale(0.92);
+            background: linear-gradient(135deg, #9575cd, #7e57c2);
         }
 
         .btn-reveal {
