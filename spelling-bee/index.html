@@ -261,12 +261,35 @@
 
         .rank-progress-bar {
             width: 100%;
-            height: 10px;
+            height: 12px;
             background: rgba(179, 157, 219, 0.2);
             border-radius: 10px;
             overflow: hidden;
             position: relative;
             border: 1px solid rgba(156, 39, 176, 0.3);
+            display: flex;
+        }
+
+        .rank-progress-segment {
+            height: 100%;
+            transition: width 0.5s ease-out;
+            border-right: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .rank-progress-segment:last-child {
+            border-right: none;
+        }
+
+        .rank-progress-segment.completed {
+            opacity: 1;
+        }
+
+        .rank-progress-segment.current {
+            opacity: 0.7;
+        }
+
+        .rank-progress-segment.incomplete {
+            opacity: 0.2;
         }
 
         .rank-progress-fill {
@@ -848,8 +871,8 @@
                     </div>
                     <div class="rank-percentage" id="rankPercentage">0%</div>
                 </div>
-                <div class="rank-progress-bar">
-                    <div class="rank-progress-fill" id="rankProgressFill" style="width: 0%;"></div>
+                <div class="rank-progress-bar" id="rankProgressBar">
+                    <!-- Segments will be populated by JavaScript -->
                 </div>
             </div>
 
@@ -1611,10 +1634,59 @@
             rankTitle.textContent = rank.name;
             rankTitle.className = 'rank-title ' + rank.class;
             rankPercentage.textContent = percentage + '%';
-            rankProgressFill.style.width = percentage + '%';
+            
+            // Update segmented progress bar
+            updateSegmentedProgressBar(percentage);
             
             // Update rank ladder
             updateRankLadder(percentage);
+        }
+
+        function updateSegmentedProgressBar(currentPercentage) {
+            const progressBar = document.getElementById('rankProgressBar');
+            if (!progressBar) return;
+            
+            const allRanks = getAllRanks();
+            const colors = [
+                'linear-gradient(90deg, #bdbdbd, #9e9e9e)', // Beginner - gray
+                'linear-gradient(90deg, #aed581, #9ccc65)', // Good Start - light green
+                'linear-gradient(90deg, #81c784, #66bb6a)', // Moving Up - green
+                'linear-gradient(90deg, #64b5f6, #42a5f5)', // Good - blue
+                'linear-gradient(90deg, #ba68c8, #ab47bc)', // Solid - purple
+                'linear-gradient(90deg, #f06292, #ec407a)', // Nice - pink
+                'linear-gradient(90deg, #ffb74d, #ffa726)', // Great - orange
+                'linear-gradient(90deg, #ffd54f, #ffca28)', // Amazing - yellow
+                'linear-gradient(90deg, #ff9800, #f57c00)'  // Genius - deep orange
+            ];
+            
+            // Clear existing segments
+            progressBar.innerHTML = '';
+            
+            // Create segments for each rank
+            for (let i = 0; i < allRanks.length; i++) {
+                const rank = allRanks[i];
+                const nextRank = allRanks[i + 1];
+                const segmentWidth = nextRank ? (nextRank.threshold - rank.threshold) : (100 - rank.threshold);
+                
+                const segment = document.createElement('div');
+                segment.className = 'rank-progress-segment';
+                segment.style.width = segmentWidth + '%';
+                segment.style.background = colors[i];
+                
+                // Determine segment state
+                if (currentPercentage >= (nextRank ? nextRank.threshold : 100)) {
+                    segment.classList.add('completed');
+                } else if (currentPercentage >= rank.threshold) {
+                    segment.classList.add('current');
+                    // Calculate how much of this segment is filled
+                    const segmentProgress = ((currentPercentage - rank.threshold) / segmentWidth) * 100;
+                    segment.style.background = `linear-gradient(90deg, ${colors[i]} ${segmentProgress}%, rgba(179, 157, 219, 0.2) ${segmentProgress}%)`;
+                } else {
+                    segment.classList.add('incomplete');
+                }
+                
+                progressBar.appendChild(segment);
+            }
         }
 
         function updateStats(isPangram = false, points = 0) {
