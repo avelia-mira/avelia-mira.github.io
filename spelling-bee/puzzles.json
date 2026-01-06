@@ -2,7 +2,7 @@
   "puzzles": [
     {
       "id": 1,
-      "date": "2026-01-06",
+      "date": "2026-01-05",
       "centerLetter": "a",
       "outerLetters": "delilah",
       "intendedPangram": "delilah",
@@ -17,7 +17,7 @@
     },
     {
       "id": 3,
-      "date": "2026-01-05",
+      "date": "2026-01-06",
       "centerLetter": "O",
       "outerLetters": "CNTIAR",
       "title": "Daily Puzzle #3"
