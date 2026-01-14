@@ -36,6 +36,14 @@
       "centerLetter": "S",
       "outerLetters": "TAREDM",
       "title": "Daily Puzzle #5"
+    },
+    {
+      "id": 6,
+      "date": "2026-01-13",
+      "centerLetter": "O",
+      "outerLetters": "journalist",
+      "intendedPangram": "journalist",
+      "title": "sorry have fun"
     }
   ]
 }
